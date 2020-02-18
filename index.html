@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-     myliang&#39;s space
+     Yuliang&#39;s blog
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -43,7 +43,7 @@
       <img src="/images/cover1.jpg" alt="image frame" />
     </div>
     <div class="cover-inner text-center text-white">
-      <h1><a href="/">myliang&#39;s space</a></h1>
+      <h1><a href="/">Yuliang&#39;s blog</a></h1>
       <div id="subtitle-box">
         
         <span id="subtitle"></span>
@@ -69,6 +69,77 @@
     
     
     
+    
+    <article id="post-Electron-进程间通讯详解" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/02/18/Electron-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E8%AE%AF%E8%AF%A6%E8%A7%A3/"
+    >Electron 进程间通讯详解</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/02/18/Electron-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E8%AE%AF%E8%AF%A6%E8%A7%A3/" class="article-date">
+  <time datetime="2020-02-18T07:59:17.000Z" itemprop="datePublished">2020-02-18</time>
+</a>
+      
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h3 id="主进程"><a href="#主进程" class="headerlink" title="主进程"></a>主进程</h3><p>Electron 运行 package.json 中的 main 脚本中的进程被称为主进程，该进程在应用整个生命周期只会存在唯一一个，负责界面窗口的创建、控制、销毁等管理行为，同时也能控制整个应用的生命周期。<br>通过阅读文档以及源码我们能够发现，主进程本质上是一个 Node.js 进程，该进程充分利用了 Node.js 的跨平台特性，在其 API 的底层，抹掉了不同操作系统中的差异，为 Electron 中跨平台开发中的文件管理提供了基础。<br>主进程同时提供一套跨平台的接口，能控制各个操作系统中的原生资源，如：对话框、菜单、文件拖拽等，使得 Electron 的用户体验极大的接近了原生应用。</p>
+<h3 id="渲染进程"><a href="#渲染进程" class="headerlink" title="渲染进程"></a>渲染进程</h3><p>Electron 使用 Chromium 来展示 UI 界面，在应用程序中被称为 BrowserWindow 。当主进程每创建一个独立 BrowserWindow 实例，Electron 都会初始化一个独立的渲染进程，隔离了不同窗口之间的环境，使得每个窗口都只需要关心自己内部的 web 页面。</p>
+<h2 id="Electron-进程间通讯方式"><a href="#Electron-进程间通讯方式" class="headerlink" title="Electron 进程间通讯方式"></a>Electron 进程间通讯方式</h2><p>在计算机系统设计中，不同的进程间内存资源都是相互隔离的，因此进程间的数据交换，会使用进程间通讯方式达成。而不同于一般的原生应用开发，Electron 的渲染进程与主进程分别属于独立的进程中，而且进程间会存在频繁的数据交换，这时选择一个合理的进程间通讯方式显得尤为重要。下面是 Electron 中官方提供的进程间通讯方式：</p>
+<h2 id="LocalStorage-window-postMessage"><a href="#LocalStorage-window-postMessage" class="headerlink" title="LocalStorage, window.postMessage"></a>LocalStorage, window.postMessage</h2><p>在前端开发中，鉴于浏览器对本地数据有严格的访问限制，所以一般通过该两种方式进行窗口间的数据通讯，该方式同样适用于 Electron 开发中。然而因为 API 设计目的仅仅是为了前端窗口间简单的数据传输，大量以及频繁的数据通讯会导致应用结构松散，同时传输效率也值得怀疑。</p>
+<h2 id="IPC-Inner-Process-Communication"><a href="#IPC-Inner-Process-Communication" class="headerlink" title="IPC (Inner-Process Communication)"></a>IPC (Inner-Process Communication)</h2><p>Electron 中提供了 ipcRender 、ipcMain 作为主进程以及渲染进程间通讯的桥梁，该方式属于 Electron 特有传输方式，不适用于其他前端开发场景。Electron 沿用 Chromium 中的 IPC 方式，不同于 socket、http 等通讯方式，Chromium 使用的是命名管道 IPC ，能够提供更高的效率以及安全性。</p>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
     
     <article id="post-中文测试" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
@@ -136,86 +207,6 @@
 
 </article>
     
-    <article id="post-hello-world" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/02/18/hello-world/"
-    >Hello World</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/02/18/hello-world/" class="article-date">
-  <time datetime="2020-02-18T05:48:35.407Z" itemprop="datePublished">2020-02-18</time>
-</a>
-      
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><p>�ܵ�</p>
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
   </article>
   
 
@@ -229,7 +220,7 @@
       <li>
         &copy;
         2015-2020
-        yuliang
+        Ma Yuliang
       </li>
       <li>
         
@@ -270,7 +261,7 @@
 <nav class="navbar">
   
   <div class="logo">
-    <a href="/"><img src="/images/ayer-side.svg" alt="myliang&#39;s space"></a>
+    <a href="/"><img src="/images/ayer-side.svg" alt="Yuliang&#39;s blog"></a>
   </div>
   
   <ul class="nav nav-main">
@@ -281,18 +272,6 @@
     
     <li class="nav-item">
       <a class="nav-item-link" href="/archives">目录</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/categories">分类</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="http://shenyu-vip.lofter.com" target="_blank" rel="noopener">摄影</a>
     </li>
     
     <li class="nav-item">
@@ -370,7 +349,7 @@
 <script>
   try {
     var typed = new Typed("#subtitle", {
-    strings: ['Welcome to my space!','Life Oriend Programming','想要的都拥有，得不到的都释怀'],
+    strings: ['Welcome to my space!','博主会努力更新更多干货','欢迎大家多多访问'],
     startDelay: 0,
     typeSpeed: 300,
     loop: true,
