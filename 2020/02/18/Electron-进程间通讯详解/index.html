@@ -96,6 +96,8 @@
 
       
       <h3 id="主进程"><a href="#主进程" class="headerlink" title="主进程"></a>主进程</h3><p>Electron 运行 package.json 中的 main 脚本中的进程被称为主进程，该进程在应用整个生命周期只会存在唯一一个，负责界面窗口的创建、控制、销毁等管理行为，同时也能控制整个应用的生命周期。<br>通过阅读文档以及源码我们能够发现，主进程本质上是一个 Node.js 进程，该进程充分利用了 Node.js 的跨平台特性，在其 API 的底层，抹掉了不同操作系统中的差异，为 Electron 中跨平台开发中的文件管理提供了基础。<br>主进程同时提供一套跨平台的接口，能控制各个操作系统中的原生资源，如：对话框、菜单、文件拖拽等，使得 Electron 的用户体验极大的接近了原生应用。</p>
+<a id="more"></a>
+
 <h3 id="渲染进程"><a href="#渲染进程" class="headerlink" title="渲染进程"></a>渲染进程</h3><p>Electron 使用 Chromium 来展示 UI 界面，在应用程序中被称为 BrowserWindow 。当主进程每创建一个独立 BrowserWindow 实例，Electron 都会初始化一个独立的渲染进程，隔离了不同窗口之间的环境，使得每个窗口都只需要关心自己内部的 web 页面。</p>
 <h2 id="Electron-进程间通讯方式"><a href="#Electron-进程间通讯方式" class="headerlink" title="Electron 进程间通讯方式"></a>Electron 进程间通讯方式</h2><p>在计算机系统设计中，不同的进程间内存资源都是相互隔离的，因此进程间的数据交换，会使用进程间通讯方式达成。而不同于一般的原生应用开发，Electron 的渲染进程与主进程分别属于独立的进程中，而且进程间会存在频繁的数据交换，这时选择一个合理的进程间通讯方式显得尤为重要。下面是 Electron 中官方提供的进程间通讯方式：</p>
 <h2 id="LocalStorage-window-postMessage"><a href="#LocalStorage-window-postMessage" class="headerlink" title="LocalStorage, window.postMessage"></a>LocalStorage, window.postMessage</h2><p>在前端开发中，鉴于浏览器对本地数据有严格的访问限制，所以一般通过该两种方式进行窗口间的数据通讯，该方式同样适用于 Electron 开发中。然而因为 API 设计目的仅仅是为了前端窗口间简单的数据传输，大量以及频繁的数据通讯会导致应用结构松散，同时传输效率也值得怀疑。</p>
@@ -321,7 +323,7 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/2019/about">关于我</a>
+      <a class="nav-item-link" href="/about">关于我</a>
     </li>
     
   </ul>
