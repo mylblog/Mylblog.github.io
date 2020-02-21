@@ -227,7 +227,7 @@ End Sub</code></pre><h3 id="步骤6：F5运行即可"><a href="#步骤6：F5运�
 </blockquote>
 
 <p><img src="/2020/02/21/%E8%AE%A1%E7%AE%97%E5%99%A8/img1-4.png" alt></p>
-<h4 id="（-其余部分步骤与-样式一-相同）"><a href="#（-其余部分步骤与-样式一-相同）" class="headerlink" title="（ 其余部分步骤与 样式一 相同）"></a>（ 其余部分步骤与 样式一 相同）</h4><h4 id="完整代码如下：-1"><a href="#完整代码如下：-1" class="headerlink" title="完整代码如下："></a>完整代码如下：</h4><pre><code>Private Sub CommandButton1_Click()
+<h4 id="（-其余部分步骤可参考-样式一）"><a href="#（-其余部分步骤可参考-样式一）" class="headerlink" title="（ 其余部分步骤可参考 样式一）"></a>（ 其余部分步骤可参考 样式一）</h4><h4 id="完整代码如下：-1"><a href="#完整代码如下：-1" class="headerlink" title="完整代码如下："></a>完整代码如下：</h4><pre><code>Private Sub CommandButton1_Click()
 TextBox3 = Val(TextBox1.Text) + Val(TextBox2.Text)
 End Sub
 
@@ -268,16 +268,16 @@ End Sub</code></pre><h2 id="1-样式三"><a href="#1-样式三" class="headerlin
 <p><img src="/2020/02/21/%E8%AE%A1%E7%AE%97%E5%99%A8/img1-5-1.png" alt></p>
 <hr>
 
-<h4 id="（-其余部分步骤可参考样式一）"><a href="#（-其余部分步骤可参考样式一）" class="headerlink" title="（ 其余部分步骤可参考样式一）"></a>（ 其余部分步骤可参考样式一）</h4><h4 id="完整代码如下：-2"><a href="#完整代码如下：-2" class="headerlink" title="完整代码如下："></a>完整代码如下：</h4><pre><code>Private Sub ComboBox1_Change()
+<h4 id="（-其余部分步骤可参考-样式一）-1"><a href="#（-其余部分步骤可参考-样式一）-1" class="headerlink" title="（ 其余部分步骤可参考 样式一）"></a>（ 其余部分步骤可参考 样式一）</h4><h4 id="完整代码如下：-2"><a href="#完整代码如下：-2" class="headerlink" title="完整代码如下："></a>完整代码如下：</h4><pre><code>Private Sub ComboBox1_Change()
 Select Case ComboBox1.Text
 Case &quot;+&quot;
-CommandButton1.Caption = Val(TextBox1.Text) +                       Val(TextBox2.Text)
+CommandButton1.Caption = Val(TextBox1.Text) + Val(TextBox2.Text)
 Case &quot;-&quot;
-CommandButton1.Caption = Val(TextBox1.Text) -                       Val(TextBox2.Text)
+CommandButton1.Caption = Val(TextBox1.Text) - Val(TextBox2.Text)
 Case &quot;*&quot;
-CommandButton1.Caption = Val(TextBox1.Text) *                       Val(TextBox2.Text)
+CommandButton1.Caption = Val(TextBox1.Text) * Val(TextBox2.Text)
 Case &quot;/&quot;
-CommandButton1.Caption = Val(TextBox1.Text) /                       Val(TextBox2.Text)
+CommandButton1.Caption = Val(TextBox1.Text) / Val(TextBox2.Text)
 End Select
 End Sub
 
@@ -371,6 +371,20 @@ End Sub</code></pre><p><br><br><br></p>
 
   
   
+  <nav class="article-nav">
+    
+      <a href="/2020/02/21/index/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            index
+          
+        </div>
+      </a>
+    
+    
+  </nav>
+
 
   
 
