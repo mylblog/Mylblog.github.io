@@ -59,7 +59,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">2k字</span>
+            <span class="post-count">2.2k字</span>
         </span>
     </span>
 
@@ -68,7 +68,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">7分钟</span>
+            <span class="post-count">9分钟</span>
         </span>
     </span>
 </div>
@@ -222,10 +222,73 @@ Next i
 If PoinTag = False Then
     txtResult = txtResult &amp; &quot;.&quot;
 End If
-End Sub</code></pre><h3 id="步骤6：F5运行即可"><a href="#步骤6：F5运行即可" class="headerlink" title="步骤6：F5运行即可"></a>步骤6：F5运行即可</h3><blockquote>
+End Sub</code></pre><h3 id="步骤6：F5运行即可"><a href="#步骤6：F5运行即可" class="headerlink" title="步骤6：F5运行即可"></a>步骤6：F5运行即可</h3><h2 id="1-样式二"><a href="#1-样式二" class="headerlink" title="1. 样式二"></a>1. 样式二</h2><blockquote>
+如下图所示：
+</blockquote>
+
+<p><img src="/2020/02/21/%E8%AE%A1%E7%AE%97%E5%99%A8/img1-4.png" alt></p>
+<h4 id="（-其余部分步骤与-样式一-相同）"><a href="#（-其余部分步骤与-样式一-相同）" class="headerlink" title="（ 其余部分步骤与 样式一 相同）"></a>（ 其余部分步骤与 样式一 相同）</h4><h4 id="完整代码如下：-1"><a href="#完整代码如下：-1" class="headerlink" title="完整代码如下："></a>完整代码如下：</h4><pre><code>Private Sub CommandButton1_Click()
+TextBox3 = Val(TextBox1.Text) + Val(TextBox2.Text)
+End Sub
+
+Private Sub CommandButton2_Click()
+TextBox3 = Val(TextBox1.Text) - Val(TextBox2.Text)
+End Sub
+
+Private Sub CommandButton3_Click()
+TextBox3 = Val(TextBox1.Text) * Val(TextBox2.Text)
+End Sub
+
+Private Sub CommandButton4_Click()
+TextBox3 = Val(TextBox1.Text) / Val(TextBox2.Text)
+End Sub
+
+Private Sub CommandButton5_Click()
+TextBox1 = &quot; &quot;
+TextBox2 = &quot; &quot;
+TextBox3 = &quot; &quot;
+End Sub
+
+Private Sub TextBox1_Change()
+
+End Sub</code></pre><h2 id="1-样式三"><a href="#1-样式三" class="headerlink" title="1. 样式三"></a>1. 样式三</h2>   <blockquote>
+如下图所示：
+</blockquote>
+
+<p><img src="/2020/02/21/%E8%AE%A1%E7%AE%97%E5%99%A8/img1-5.png" alt></p>
+<h3 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h3><h4 id="上方选择栏选择-：（UserForm）-（Initiaiaze）-对应位置（光标闪烁的位置）填入下面代码"><a href="#上方选择栏选择-：（UserForm）-（Initiaiaze）-对应位置（光标闪烁的位置）填入下面代码" class="headerlink" title="上方选择栏选择 ：（UserForm）,（Initiaiaze）    对应位置（光标闪烁的位置）填入下面代码"></a>上方选择栏选择 ：（UserForm）,（Initiaiaze）    对应位置（光标闪烁的位置）填入下面代码</h4><pre><code>Private Sub UserForm_Initialize()
+  ComboBox1.AddItem &quot;+&quot;
+  ComboBox1.AddItem &quot;-&quot;
+  ComboBox1.AddItem &quot;*&quot;
+  ComboBox1.AddItem &quot;/&quot;
+  End Sub</code></pre><blockquote>
+如下图所示：
+</blockquote>
+
+<p><img src="/2020/02/21/%E8%AE%A1%E7%AE%97%E5%99%A8/img1-5-1.png" alt></p>
+<hr>
+
+<h4 id="（-其余部分步骤可参考样式一）"><a href="#（-其余部分步骤可参考样式一）" class="headerlink" title="（ 其余部分步骤可参考样式一）"></a>（ 其余部分步骤可参考样式一）</h4><h4 id="完整代码如下：-2"><a href="#完整代码如下：-2" class="headerlink" title="完整代码如下："></a>完整代码如下：</h4><pre><code>Private Sub ComboBox1_Change()
+Select Case ComboBox1.Text
+Case &quot;+&quot;
+CommandButton1.Caption = Val(TextBox1.Text) +                       Val(TextBox2.Text)
+Case &quot;-&quot;
+CommandButton1.Caption = Val(TextBox1.Text) -                       Val(TextBox2.Text)
+Case &quot;*&quot;
+CommandButton1.Caption = Val(TextBox1.Text) *                       Val(TextBox2.Text)
+Case &quot;/&quot;
+CommandButton1.Caption = Val(TextBox1.Text) /                       Val(TextBox2.Text)
+End Select
+End Sub
+
+Private Sub UserForm_Click()
+
+End Sub</code></pre><p><br><br><br></p>
+<blockquote>
 <center>
-未完 &nbsp&nbsp&nbsp&nbsp待更新……
-</center></blockquote>
+白嫖不好吧&nbsp&nbsp&nbsp&nbsp感谢打赏
+</center>
+</blockquote>
       
       <!-- reward -->
       
