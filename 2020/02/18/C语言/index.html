@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Electron 进程间通讯详解 |  Yuliang&#39;s blog
+    C语言 |  Yuliang&#39;s blog
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -31,7 +31,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-Electron-进程间通讯详解" class="article article-type-post" itemscope
+  <article id="w-C语言" class="article article-type-w" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -39,7 +39,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Electron 进程间通讯详解
+  C语言
 </h1>
   
 
@@ -48,8 +48,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/02/18/Electron-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E8%AE%AF%E8%AF%A6%E8%A7%A3/" class="article-date">
-  <time datetime="2020-02-18T07:59:17.000Z" itemprop="datePublished">2020-02-18</time>
+      <a href="/2020/02/18/C%E8%AF%AD%E8%A8%80/" class="article-date">
+  <time datetime="2020-02-18T08:15:04.000Z" itemprop="datePublished">2020-02-18</time>
 </a>
       
       
@@ -59,7 +59,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">658字</span>
+            <span class="post-count">174字</span>
         </span>
     </span>
 
@@ -68,7 +68,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2分钟</span>
+            <span class="post-count">1分钟</span>
         </span>
     </span>
 </div>
@@ -79,8 +79,6 @@
 
     
     
-    <div class="tocbot"></div>
-
 
 
 
@@ -95,13 +93,7 @@
       
 
       
-      <h3 id="主进程"><a href="#主进程" class="headerlink" title="主进程"></a>主进程</h3><p>Electron 运行 package.json 中的 main 脚本中的进程被称为主进程，该进程在应用整个生命周期只会存在唯一一个，负责界面窗口的创建、控制、销毁等管理行为，同时也能控制整个应用的生命周期。<br>通过阅读文档以及源码我们能够发现，主进程本质上是一个 Node.js 进程，该进程充分利用了 Node.js 的跨平台特性，在其 API 的底层，抹掉了不同操作系统中的差异，为 Electron 中跨平台开发中的文件管理提供了基础。<br>主进程同时提供一套跨平台的接口，能控制各个操作系统中的原生资源，如：对话框、菜单、文件拖拽等，使得 Electron 的用户体验极大的接近了原生应用。</p>
-<a id="more"></a>
-
-<h3 id="渲染进程"><a href="#渲染进程" class="headerlink" title="渲染进程"></a>渲染进程</h3><p>Electron 使用 Chromium 来展示 UI 界面，在应用程序中被称为 BrowserWindow 。当主进程每创建一个独立 BrowserWindow 实例，Electron 都会初始化一个独立的渲染进程，隔离了不同窗口之间的环境，使得每个窗口都只需要关心自己内部的 web 页面。</p>
-<h2 id="Electron-进程间通讯方式"><a href="#Electron-进程间通讯方式" class="headerlink" title="Electron 进程间通讯方式"></a>Electron 进程间通讯方式</h2><p>在计算机系统设计中，不同的进程间内存资源都是相互隔离的，因此进程间的数据交换，会使用进程间通讯方式达成。而不同于一般的原生应用开发，Electron 的渲染进程与主进程分别属于独立的进程中，而且进程间会存在频繁的数据交换，这时选择一个合理的进程间通讯方式显得尤为重要。下面是 Electron 中官方提供的进程间通讯方式：</p>
-<h2 id="LocalStorage-window-postMessage"><a href="#LocalStorage-window-postMessage" class="headerlink" title="LocalStorage, window.postMessage"></a>LocalStorage, window.postMessage</h2><p>在前端开发中，鉴于浏览器对本地数据有严格的访问限制，所以一般通过该两种方式进行窗口间的数据通讯，该方式同样适用于 Electron 开发中。然而因为 API 设计目的仅仅是为了前端窗口间简单的数据传输，大量以及频繁的数据通讯会导致应用结构松散，同时传输效率也值得怀疑。</p>
-<h2 id="IPC-Inner-Process-Communication"><a href="#IPC-Inner-Process-Communication" class="headerlink" title="IPC (Inner-Process Communication)"></a>IPC (Inner-Process Communication)</h2><p>Electron 中提供了 ipcRender 、ipcMain 作为主进程以及渲染进程间通讯的桥梁，该方式属于 Electron 特有传输方式，不适用于其他前端开发场景。Electron 沿用 Chromium 中的 IPC 方式，不同于 socket、http 等通讯方式，Chromium 使用的是命名管道 IPC ，能够提供更高的效率以及安全性。</p>
+      <p>C语言是一门面向过程、抽象化的通用程序设计语言，广泛应用于底层开发。C语言能以简易的方式编译、处理低级存储器。C语言是仅产生少量的机器语言以及不需要任何运行环境支持便能运行的高效率程序设计语言。尽管C语言提供了许多低级处理的功能，但仍然保持着跨平台的特性，以一个标准规格写出的C语言程序可在包括一些类似嵌入式处理器以及超级计算机等作业平台的许多计算机平台上进行编译。</p>
 
       
       <!-- reward -->
@@ -171,7 +163,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/02/18/Electron-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E8%AE%AF%E8%AF%A6%E8%A7%A3/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/02/18/C%E8%AF%AD%E8%A8%80/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -187,15 +179,11 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/02/18/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            操作系统
-          
-        </div>
-      </a>
     
+      <a href="/2020/02/18/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">操作系统</div>
+      </a>
     
   </nav>
 
