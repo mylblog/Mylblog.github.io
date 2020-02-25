@@ -59,7 +59,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">456字</span>
+            <span class="post-count">782字</span>
         </span>
     </span>
 
@@ -68,7 +68,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2分钟</span>
+            <span class="post-count">3分钟</span>
         </span>
     </span>
 </div>
@@ -128,8 +128,63 @@
 </blockquote>
 
 <h4 id="程序如下：-3"><a href="#程序如下：-3" class="headerlink" title="程序如下："></a>程序如下：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">int a;</span><br><span class="line">printf(&quot;请输入年份\n&quot;);</span><br><span class="line">scanf(&quot;%d&quot;,&amp;a);</span><br><span class="line">if((a%100!&#x3D;0&amp;&amp;a%4&#x3D;&#x3D;0)||a%400&#x3D;&#x3D;0)</span><br><span class="line">printf(&quot;%d年是闰年\n&quot;,a);</span><br><span class="line">else</span><br><span class="line">printf(&quot;%d年不是闰年\n&quot;,a);</span><br><span class="line">return 0;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>  <br> <br> <br></p>
-<h5 id="未完待续……"><a href="#未完待续……" class="headerlink" title="未完待续……"></a>未完待续……</h5>
+<p>  <br><br></p>
+<blockquote>
+(2)输入一个字符，判断它是否为大写字母，若是则将其转换成小写字母，若不是则不转换，然后输出最后得到的字符。
+</blockquote>
+
+<h4 id="程序如下：-4"><a href="#程序如下：-4" class="headerlink" title="程序如下："></a>程序如下：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">char ch;</span><br><span class="line">scanf(&quot;%c&quot;,&amp;ch);</span><br><span class="line">if(ch&gt;&#39;A&#39;&amp;&amp;ch&lt;&#x3D;&#39;Z&#39;)</span><br><span class="line">  ch&#x3D;ch+32;</span><br><span class="line">printf(&quot;%c\n&quot;,ch);</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-表达式1-？-表达式2-：-表达式3"><a href="#3-表达式1-？-表达式2-：-表达式3" class="headerlink" title="3. 表达式1 ？ 表达式2 ： 表达式3"></a>3. 表达式1 ？ 表达式2 ： 表达式3</h2><p>  <br><br></p>
+<blockquote>
+(1) 输入一个字符，判断它是否为大写字母，若是则将其转换成小写字母，若不是则不转换，然后输出最后得到的字符。
+</blockquote>
+
+<h4 id="程序如下：-5"><a href="#程序如下：-5" class="headerlink" title="程序如下："></a>程序如下：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">char ch;</span><br><span class="line">scanf(&quot;%c&quot;,&amp;ch);</span><br><span class="line">ch&#x3D;(ch&gt;&#x3D;&#39;A&#39;&amp;&amp;ch&lt;&#x3D;&#39;Z&#39;)?(ch+32):ch;</span><br><span class="line">printf(&quot;%c\n&quot;,ch);</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  <br><br></p>
+<blockquote>
+(2) 输入两个实数a、b，按数值由小到大的顺序输出这两个数。
+</blockquote>
+
+<h4 id="程序如下：-6"><a href="#程序如下：-6" class="headerlink" title="程序如下："></a>程序如下：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">double a,b;</span><br><span class="line">scanf(&quot;%lf,%lf&quot;,&amp;a,&amp;b);</span><br><span class="line">a&gt;b?printf(&quot;%f,%f\n&quot;,b,a):printf(&quot;%f,%f\n&quot;,a,b);</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-switch语句"><a href="#4-switch语句" class="headerlink" title="4. switch语句"></a>4. switch语句</h2><br>
+<blockquote>
+(1) 某课成绩原为A、B、C、D 四个等级，现要将其转换成百分制分段数，规则是：A等转成85~100，B等转成70~84，C等转成60~69，D等转成<60。请编一程序，成绩等级由键盘输入，输出分数段。 < blockquote>
+
+<h4 id="程序如下：-7"><a href="#程序如下：-7" class="headerlink" title="程序如下："></a>程序如下：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">char dengji;</span><br><span class="line">scanf(&quot;%c&quot;,dengji);</span><br><span class="line">switch(dengji)</span><br><span class="line">&#123;</span><br><span class="line">case&#39;A&#39;:printf(&quot;该生分数为85~100\n&quot;);break;</span><br><span class="line">case&#39;B&#39;:printf(&quot;该生分数为70~84\n&quot;);break;</span><br><span class="line">case&#39;C&#39;:printf(&quot;该生分数为60~69\n&quot;);break;</span><br><span class="line">case&#39;D&#39;:printf(&quot;该生分数为&lt;60\n&quot;);break;</span><br><span class="line">default:printf(&quot;该生的等级输的不对！\n&quot;);break;</span><br><span class="line">&#125;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><br><br></p>
+<blockquote>
+(2) 某课成绩原为A、B、C、D 四个等级，现要将其转换成百分制分段数，规则是：A等，B等转成70~100，C等，D等转成<70。请编一程序，成绩等级由键盘输入，输出分数段。 < blockquote>
+
+<h4 id="程序如下：-8"><a href="#程序如下：-8" class="headerlink" title="程序如下："></a>程序如下：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">char dengji;</span><br><span class="line">scanf(&quot;%c&quot;,dengji);</span><br><span class="line">switch(dengji)</span><br><span class="line">&#123;</span><br><span class="line">case&#39;A&#39;:</span><br><span class="line">case&#39;B&#39;:printf(&quot;该生分数为70~100\n&quot;);break;</span><br><span class="line">case&#39;C&#39;:</span><br><span class="line">case&#39;D&#39;:printf(&quot;该生分数为&lt;70\n&quot;);break;</span><br><span class="line">default:printf(&quot;该生的等级输的不对！\n&quot;);break;</span><br><span class="line">&#125;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br><br></p>
+<blockquote>
+(3) 某课成绩原为百分制，现要将其转换成等级，规则是：90分以上为A、80~89分为B、70~79分为C、60~69分为D、60分以下分为E。请编一程序，成绩等级由键盘输入，输出分数段。
+</blockquote>
+
+<h4 id="程序如下：-9"><a href="#程序如下：-9" class="headerlink" title="程序如下："></a>程序如下：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">double fenshu;</span><br><span class="line">printf(&quot;请输入分数: &quot;);</span><br><span class="line">scanf(&quot;%lf&quot;,&amp;fenshu);</span><br><span class="line">switch((int)(fenshu&#x2F;10))</span><br><span class="line">&#123;</span><br><span class="line">case 10:</span><br><span class="line">case 9:printf(&quot;该生等级为A\n&quot;);break;</span><br><span class="line">case 8:printf(&quot;该生等级为B\n&quot;);break;</span><br><span class="line">case 7:printf(&quot;该生等级为C\n&quot;);break;</span><br><span class="line">case 6:printf(&quot;该生等级为D\n&quot;);break;</span><br><span class="line">case 5:</span><br><span class="line">case 4:</span><br><span class="line">case 3:</span><br><span class="line">case 2:</span><br><span class="line">case 1:</span><br><span class="line">case 0:printf(&quot;该生等级为E\n&quot;);break;</span><br><span class="line">default:printf(&quot;请重新正确输入！\n&quot;);break;</span><br><span class="line">&#125;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-while语句"><a href="#5-while语句" class="headerlink" title="5.while语句"></a>5.while语句</h2><br>
+<blockquote>
+(1) 求 2+4+6+……+100
+</blockquote>
+
+<h4 id="程序如下：-10"><a href="#程序如下：-10" class="headerlink" title="程序如下："></a>程序如下：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">int n&#x3D;1,sum&#x3D;0,a&#x3D;2;</span><br><span class="line">while(n&lt;&#x3D;50)</span><br><span class="line">&#123;</span><br><span class="line">n&#x3D;n+1;</span><br><span class="line">sum&#x3D;sum+1;</span><br><span class="line">a&#x3D;a+2;</span><br><span class="line">&#125;</span><br><span class="line">printf(&quot;计算结束是%d\n&quot;,sum);</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+<blockquote>
+(2) 求 2×4×6×……×100
+</blockquote>
+
+<h4 id="程序如下：-11"><a href="#程序如下：-11" class="headerlink" title="程序如下："></a>程序如下：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">int n&#x3D;1,chengji&#x3D;1,a&#x3D;2;</span><br><span class="line">while(n&lt;&#x3D;50)</span><br><span class="line">&#123;</span><br><span class="line">n&#x3D;n+1;</span><br><span class="line">chengji&#x3D;chengji*a;</span><br><span class="line">a&#x3D;a+2;</span><br><span class="line">&#125;</span><br><span class="line">printf(&quot;计算结束是%d\n&quot;,chengji);</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><br> <br> <br></p>
+<center>
+
+<h5 id="未完待续……"><a href="#未完待续……" class="headerlink" title="未完待续……"></a>未完待续……</h5></center></70。请编一程序，成绩等级由键盘输入，输出分数段。></blockquote></60。请编一程序，成绩等级由键盘输入，输出分数段。></blockquote>
       
       <!-- reward -->
       
