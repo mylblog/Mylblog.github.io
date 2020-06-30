@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    操作系统实验（银行家算法） |  Yuliang&#39;s blog
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-操作系统实验（银行家算法）" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  操作系统实验（银行家算法）
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/06/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%EF%BC%88%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95%EF%BC%89/" class="article-date">
+  <time datetime="2020-06-30T08:00:00.000Z" itemprop="datePublished">2020-06-30</time>
+</a>
+      
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.1k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">10分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h3 id="实验二、银行家算法"><a href="#实验二、银行家算法" class="headerlink" title="实验二、银行家算法"></a>实验二、银行家算法</h3><h4 id="（一）-目的和要求"><a href="#（一）-目的和要求" class="headerlink" title="（一） 目的和要求"></a>（一） 目的和要求</h4><p>银行家算法是由Dijkstra设计的最具有代表性的避免死锁的算法。本实验要求用高级语言编写一个银行家的模拟算法。通过本实验可以对预防死锁和银行家算法有更深刻的认识。</p>
+<a id="more"></a>
+
+<h4 id="（二）-实验内容"><a href="#（二）-实验内容" class="headerlink" title="（二） 实验内容"></a>（二） 实验内容</h4><h5 id="1、-设置数据结构"><a href="#1、-设置数据结构" class="headerlink" title="1、 设置数据结构"></a>1、 设置数据结构</h5><p>包括可利用资源向量（Availiable）,最大需求矩阵（Max）,分配矩阵（Allocation）,需求矩阵（Need）</p>
+<h5 id="2、-设计安全性算法"><a href="#2、-设计安全性算法" class="headerlink" title="2、 设计安全性算法"></a>2、 设计安全性算法</h5><p>设置工作向量Work 表示系统可提供进程继续运行可利用资源数目，Finish 表示系统是否有足够的资源分配给进程</p>
+<h4 id="（三）-实验环境"><a href="#（三）-实验环境" class="headerlink" title="（三） 实验环境"></a>（三） 实验环境</h4><h5 id="1、-pc"><a href="#1、-pc" class="headerlink" title="1、 pc"></a>1、 pc</h5><h5 id="2、-vc"><a href="#2、-vc" class="headerlink" title="2、 vc++"></a>2、 vc++</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*子函数声明*&#x2F;                           </span><br><span class="line">int Isprocessallover();                &#x2F;&#x2F;判断系统中的进程是否全部运行完毕</span><br><span class="line">void Systemstatus();                   &#x2F;&#x2F;显示当前系统中的资源及进程情况</span><br><span class="line">int Banker(int ,int *);                &#x2F;&#x2F;银行家算法</span><br><span class="line">void Allow(int ,int *);                &#x2F;&#x2F;若进程申请不导致死锁，用此函数分配资源</span><br><span class="line">void Forbidenseason(int );             &#x2F;&#x2F;若发生死锁，则显示原因</span><br><span class="line"></span><br><span class="line">&#x2F;*全局变量*&#x2F;</span><br><span class="line">int Availiable[3]&#x3D;&#123;3,3,2&#125;;              &#x2F;&#x2F;初始状态，系统可用资源量                         </span><br><span class="line">int Max[5][3]&#x3D;&#123;&#123;7,5,3&#125;,&#123;3,2,2&#125;,&#123;9,0,2&#125;,&#123;2,2,2&#125;,&#123;4,3,3&#125;&#125;;             </span><br><span class="line"> &#x2F;&#x2F;各进程对各资源的最大需求量</span><br><span class="line">int Allocation[5][3]&#x3D;&#123;&#123;0,1,0&#125;,&#123;2,0,0&#125;,&#123;3,0,2&#125;,&#123;2,1,1&#125;,&#123;0,0,2&#125;&#125;;     </span><br><span class="line">  &#x2F;&#x2F;初始状态，各进程占有资源量</span><br><span class="line">int Need[5][3]&#x3D;&#123;&#123;7,4,3&#125;,&#123;1,2,2&#125;,&#123;6,0,0&#125;,&#123;0,1,1&#125;,&#123;4,3,1&#125;&#125;;           </span><br><span class="line">  &#x2F;&#x2F;初始状态时，各进程运行完毕，还需要的资源量 </span><br><span class="line">int over[5]&#x3D;&#123;0,0,0,0,0&#125;;               &#x2F;&#x2F;标记对应进程是否得到所有资源并运行完毕  </span><br><span class="line">     </span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">&#x2F;*主函数*&#x2F;</span><br><span class="line">int main()</span><br><span class="line">&#123;	</span><br><span class="line">	int process&#x3D;0;                           &#x2F;&#x2F;发出请求的进程</span><br><span class="line">	int decide&#x3D;0;                            &#x2F;&#x2F;银行家算法的返回值</span><br><span class="line">	int Request[3]&#x3D;&#123;0,0,0&#125;;                  &#x2F;&#x2F;申请的资源量数组</span><br><span class="line">	int sourcenum&#x3D;0;                         &#x2F;&#x2F;申请的各资源量</span><br><span class="line">    &#x2F;*判断系统中进程是否全部运行完毕*&#x2F;</span><br><span class="line">step1:    if(Isprocessallover()&#x3D;&#x3D;1)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;&quot;系统中全部进程运行完毕！&quot;;</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">    &#x2F;*显示系统当前状态*&#x2F;</span><br><span class="line">	Systemstatus();</span><br><span class="line">    &#x2F;*人机交互界面*&#x2F;</span><br><span class="line">step2: cout&lt;&lt;&quot;\n输入发出请求的进程（输入0退出系统）: &quot;;</span><br><span class="line">	   cin&gt;&gt;process;</span><br><span class="line">	if(process&#x3D;&#x3D;0)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;&quot;放弃申请,退出系统！&quot;;</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	if(process&lt;1||process&gt;5||over[process-1]&#x3D;&#x3D;1)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;&quot;系统无此进程！\n&quot;;</span><br><span class="line">		goto step2;</span><br><span class="line">	&#125;</span><br><span class="line">    cout&lt;&lt;&quot;此进程申请各资源（A，B，C）数目：\n&quot;;</span><br><span class="line">	for(int h&#x3D;0;h&lt;3;h++)</span><br><span class="line">	&#123;</span><br><span class="line">	    cout&lt;&lt;char(65+h)&lt;&lt;&quot;资源:&quot;;		</span><br><span class="line">	    cin&gt;&gt;sourcenum;</span><br><span class="line">		Request[h]&#x3D;sourcenum;	  </span><br><span class="line">	&#125;	</span><br><span class="line">	&#x2F;*用银行家算法判断是否能够进行分配*&#x2F;	  </span><br><span class="line">	  decide&#x3D;Banker(process,Request);</span><br><span class="line">	  if (decide&#x3D;&#x3D;0)</span><br><span class="line">	  &#123;</span><br><span class="line">		  &#x2F;*将此进程申请资源分配给它*&#x2F;</span><br><span class="line">		  Allow(process,Request);</span><br><span class="line">		  goto step1;</span><br><span class="line">	  &#125;</span><br><span class="line">	  else</span><br><span class="line">	  &#123;</span><br><span class="line">		  &#x2F;*不能分配，显示原因*&#x2F;</span><br><span class="line">		  Forbidenseason(decide);</span><br><span class="line">		  goto step2;</span><br><span class="line">	  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;*子函数Isprocessallover( )的实现*&#x2F;</span><br><span class="line">int Isprocessallover()</span><br><span class="line">&#123;</span><br><span class="line">	int processnum&#x3D;0;</span><br><span class="line">	for(int i&#x3D;0;i&lt;5;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		&#x2F;*判断每个进程是否运行完毕*&#x2F;</span><br><span class="line">		if(over[i]&#x3D;&#x3D;1)</span><br><span class="line">			processnum++;</span><br><span class="line">	&#125;</span><br><span class="line">	if(processnum&#x3D;&#x3D;5)</span><br><span class="line">		&#x2F;*系统中全部进程运行完毕*&#x2F;</span><br><span class="line">		return 1;</span><br><span class="line">	else</span><br><span class="line">		return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;*子函数Systemstatus( )的实现*&#x2F;</span><br><span class="line">void Systemstatus()</span><br><span class="line">&#123;</span><br><span class="line">	cout&lt;&lt;&quot;此刻系统中存在的进程：\n&quot;;</span><br><span class="line">	for(int i&#x3D;0;i&lt;5;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		if(over[i]!&#x3D;1)</span><br><span class="line">			cout&lt;&lt;&quot;P&quot;&lt;&lt;i+1&lt;&lt;&quot;  &quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;endl;</span><br><span class="line">	cout&lt;&lt;&quot;此刻系统可利用资源（单位：个）：\n&quot;;</span><br><span class="line">	cout&lt;&lt;&quot;A  B  C\n&quot;;</span><br><span class="line">	for(int a&#x3D;0;a&lt;3;a++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;Availiable[a]&lt;&lt;&quot;  &quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;endl;</span><br><span class="line">	cout&lt;&lt;&quot;此刻各进程已占有资源如下（单位：个）: \n&quot;</span><br><span class="line">		&lt;&lt;&quot;    A  B  C\n&quot;;		</span><br><span class="line">	for(int b&#x3D;0;b&lt;5;b++)</span><br><span class="line">	&#123;</span><br><span class="line">		if(over[b]&#x3D;&#x3D;1)</span><br><span class="line">			continue;</span><br><span class="line">		cout&lt;&lt;&quot;P&quot;&lt;&lt;b+1&lt;&lt;&quot;  &quot;;</span><br><span class="line">		for(int c&#x3D;0;c&lt;3;c++)</span><br><span class="line">			cout&lt;&lt;Allocation[b][c]&lt;&lt;&quot;  &quot;;</span><br><span class="line">		cout&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;&quot;各进程运行完毕还需各资源如下（单位：个）:\n&quot;</span><br><span class="line">		&lt;&lt;&quot;    A  B  C\n&quot;;</span><br><span class="line">	for(int f&#x3D;0;f&lt;5;f++)</span><br><span class="line">	&#123;</span><br><span class="line">		if(over[f]&#x3D;&#x3D;1)</span><br><span class="line">			continue;</span><br><span class="line">		cout&lt;&lt;&quot;P&quot;&lt;&lt;f+1&lt;&lt;&quot;  &quot;;</span><br><span class="line">		for(int g&#x3D;0;g&lt;3;g++)</span><br><span class="line">			cout&lt;&lt;Need[f][g]&lt;&lt;&quot;  &quot;;</span><br><span class="line">		cout&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;*子函数Banker(int ,int &amp;)的实现*&#x2F;</span><br><span class="line">int Banker(int p,int *R)</span><br><span class="line">&#123;</span><br><span class="line">	int num&#x3D;0;                            &#x2F;&#x2F;标记各资源是否能满足各进程需要</span><br><span class="line">	int Finish[5]&#x3D;&#123;0,0,0,0,0&#125;;                &#x2F;&#x2F;标记各进程是否安全运行完毕</span><br><span class="line">	int work[5]&#x3D;&#123;0,0,0,0,0&#125;;                 &#x2F;&#x2F;用于安全检查</span><br><span class="line">	int AvailiableTest[3];                   &#x2F;&#x2F;用于试分配  </span><br><span class="line">	int AllocationTest[5][3];                &#x2F;&#x2F;同上</span><br><span class="line">	int NeedTest[5][3];                    &#x2F;&#x2F;同上</span><br><span class="line">	&#x2F;*判断申请的资源是否大于系统可提供的资源总量*&#x2F;</span><br><span class="line">	for(int j&#x3D;0;j&lt;3;j++)</span><br><span class="line">	&#123;</span><br><span class="line">		  if(*(R+j)&gt;Availiable[j])</span><br><span class="line">			  &#x2F;*返回拒绝分配原因*&#x2F;</span><br><span class="line">		  return 1;</span><br><span class="line">	&#125;</span><br><span class="line">	&#x2F;*判断该进程申请资源量是否大于初始时其申明的需求量*&#x2F;</span><br><span class="line">	for(int i&#x3D;0;i&lt;3;i++)</span><br><span class="line">	&#123;		</span><br><span class="line">		  if(*(R+i)&gt;Need[p-1][i])</span><br><span class="line">		  &#x2F;*返回拒绝原因*&#x2F;			  </span><br><span class="line">			 return 2;</span><br><span class="line">	&#125;	 </span><br><span class="line">	  &#x2F;*为检查分配的各数据结构赋初值*&#x2F;</span><br><span class="line">    for(int t&#x3D;0;t&lt;3;t++)                     </span><br><span class="line">	&#123;</span><br><span class="line">	  AvailiableTest[t]&#x3D;Availiable[t];</span><br><span class="line">	&#125;</span><br><span class="line">	for(int u&#x3D;0;u&lt;5;u++)                      </span><br><span class="line">	&#123;</span><br><span class="line">	  for(int v&#x3D;0;v&lt;3;v++)</span><br><span class="line">	  &#123;</span><br><span class="line">		  AllocationTest[u][v]&#x3D;Allocation[u][v];</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	for(int w&#x3D;0;w&lt;5;w++)                       </span><br><span class="line">	&#123;</span><br><span class="line">	  for(int x&#x3D;0;x&lt;3;x++)</span><br><span class="line">	  &#123;</span><br><span class="line">		  NeedTest[w][x]&#x3D;Need[w][x];</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	 &#x2F;*进行试分配*&#x2F;</span><br><span class="line">	for(int k&#x3D;0;k&lt;3;k++)                      		                                         &#x2F;&#x2F;修改NeedTest[]</span><br><span class="line">	&#123;</span><br><span class="line">	  AvailiableTest[k]-&#x3D;*(R+k);</span><br><span class="line">	  AllocationTest[p-1][k]+&#x3D;*(R+k);</span><br><span class="line">	  NeedTest[p-1][k]-&#x3D;*(R+k);</span><br><span class="line">	&#125;</span><br><span class="line">	 &#x2F;*检测进程申请得到满足后，系统是否处于安全状态*&#x2F;</span><br><span class="line">    for(int l&#x3D;0;l&lt;3;l++)</span><br><span class="line">	&#123;</span><br><span class="line">	  work[l]&#x3D;AvailiableTest[l];</span><br><span class="line">	&#125;</span><br><span class="line">    for(int m&#x3D;1;m&lt;&#x3D;5;m++)</span><br><span class="line">	&#123;</span><br><span class="line">	  for(int n&#x3D;0;n&lt;5;n++)</span><br><span class="line">	  &#123;</span><br><span class="line">		  num&#x3D;0;</span><br><span class="line">		  &#x2F;*寻找用此刻系统中没有运行完的进程*&#x2F;</span><br><span class="line">		  if(Finish[n]&#x3D;&#x3D;0&amp;&amp;over[n]!&#x3D;1)                     </span><br><span class="line">		  &#123;</span><br><span class="line">			  for(int p&#x3D;0;p&lt;3;p++)</span><br><span class="line">			  &#123;</span><br><span class="line">				  if(NeedTest[n][p]&lt;&#x3D;work[p])</span><br><span class="line">					  num++;</span><br><span class="line">			  &#125;</span><br><span class="line">			  if(num&#x3D;&#x3D;3) </span><br><span class="line">			  &#123;</span><br><span class="line">			     for(int q&#x3D;0;q&lt;3;q++)</span><br><span class="line">				 &#123;</span><br><span class="line">					  work[q]&#x3D;work[q]+AllocationTest[n][q];</span><br><span class="line">				 &#125;</span><br><span class="line">				 Finish[n]&#x3D;1;					  </span><br><span class="line">			  &#125;</span><br><span class="line">		  &#125;</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;	 </span><br><span class="line">    for(int r&#x3D;0;r&lt;5;r++)</span><br><span class="line">	&#123;</span><br><span class="line">	  if(Finish[r]&#x3D;&#x3D;0&amp;&amp;over[r]!&#x3D;1)</span><br><span class="line">		  &#x2F;*返回拒绝分配原因*&#x2F;</span><br><span class="line">		  return 3;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;*子函数Allow(int ,int &amp;)的实现*&#x2F;</span><br><span class="line">void Allow(int p,int *R)</span><br><span class="line">&#123;</span><br><span class="line">	cout&lt;&lt;&quot;可以满足申请！&quot;;</span><br><span class="line">	static int overnum;</span><br><span class="line">	&#x2F;*对进程所需的资源进行分配*&#x2F;</span><br><span class="line">	for(int t&#x3D;0;t&lt;3;t++)</span><br><span class="line">	&#123;</span><br><span class="line">		Availiable[t]&#x3D;Availiable[t]-*(R+t);</span><br><span class="line">		Allocation[p-1][t]&#x3D;Allocation[p-1][t]+*(R+t);</span><br><span class="line">		Need[p-1][t]&#x3D;Need[p-1][t]-*(R+t);</span><br><span class="line">	&#125;</span><br><span class="line">	&#x2F;*分配后判断其是否运行完毕*&#x2F;</span><br><span class="line">	overnum&#x3D;0;</span><br><span class="line">	for(int v&#x3D;0;v&lt;3;v++)</span><br><span class="line">	&#123;</span><br><span class="line">		if(Need[p-1][v]&#x3D;&#x3D;0)</span><br><span class="line">			overnum++;</span><br><span class="line">	&#125;</span><br><span class="line">	if(overnum&#x3D;&#x3D;3)</span><br><span class="line">	&#123;</span><br><span class="line">		&#x2F;*此进程运行完毕，释放其占有的全部资源*&#x2F;</span><br><span class="line">		for(int q&#x3D;0;q&lt;3;q++)</span><br><span class="line">			Availiable[q]&#x3D;Availiable[q]+Allocation[p-1][q];</span><br><span class="line">		&#x2F;*标记该进程运行完毕*&#x2F;</span><br><span class="line">		over[p-1]&#x3D;1;</span><br><span class="line">		cout&lt;&lt;&quot;进程P&quot;&lt;&lt;p&lt;&lt;&quot;所需资源全部满足，此进程运行完毕！\n&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;*子函数Forbidenseason(int )的实现*&#x2F;</span><br><span class="line">void Forbidenseason(int d)</span><br><span class="line">&#123;</span><br><span class="line">	cout&lt;&lt;&quot;不能满足申请，此进程挂起，原因为：\n&quot;;</span><br><span class="line">	switch (d)</span><br><span class="line">	&#123;</span><br><span class="line">	case 1:cout&lt;&lt;&quot;申请的资源量大于系统可提供的资源量！&quot;;break;</span><br><span class="line">	case 2:cout&lt;&lt;&quot;申请的资源中有某种资源大于其声明的需求量！&quot;;break;</span><br><span class="line">	case 3:cout&lt;&lt;&quot;若满足申请，系统将进入不安全状态，可能导致死锁！&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="执行结果："><a href="#执行结果：" class="headerlink" title="执行结果："></a>执行结果：</h4><p><img src="/2020/06/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%EF%BC%88%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95%EF%BC%89/%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95%E6%89%A7%E8%A1%8C%E7%BB%93%E6%9E%9C.png" alt></p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong s>
+              本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
+                target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/06/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%EF%BC%88%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AE%9E%E9%AA%8C/" rel="tag">操作系统 - 实验</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/02/25/C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">C语言程序设计</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2015-2020
+        Ma Yuliang
+      </li>
+      <li>
+        
+          Powered by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+        
+      </li>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+    <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+      <aside class="sidebar">
+        <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="Yuliang&#39;s blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+      </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+      
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<script src="/js/share.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+    strings: ['Welcome to my space!','博主会努力更新更多干货','欢迎大家多多访问'],
+    startDelay: 0,
+    typeSpeed: 200,
+    loop: true,
+    backSpeed: 100,
+    showCursor: true
+    });
+  } catch (err) {
+  }
+  
+</script>
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer:'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    onClick: (e) => {
+      $('.toc-link').removeClass('is-active-link');
+      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
+      $(e.target.hash).scrollIntoView();
+      return false;
+    }
+  });
+</script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: false
+  }
+</script>
+
+
+<script src="/js/ayer.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  </div>
+</body>
+
+</html>
